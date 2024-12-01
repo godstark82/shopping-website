@@ -2,11 +2,14 @@ import Head from 'next/head';
 import React from 'react';
 import Image from "next/image";
 import Script from "next/script";
+import { FaFacebookF, FaInstagram, FaYoutube, FaPinterest  } from "react-icons/fa";
+import { LuUser2 } from "react-icons/lu";
+import { BsSearch } from "react-icons/bs";
+import { IoCartOutline } from "react-icons/io5";
 const Header = () => {
   return (
     <>
       <Head>
-        <link rel="stylesheet" href="/css/style.css" />
         <title>Stylish - EyeWear</title>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -16,13 +19,8 @@ const Header = () => {
         <meta name="author" content="TemplatesJungle" />
         <meta name="keywords" content="Online Store" />
         <meta name="description" content="Stylish - EyeWear" />
-        <link rel="stylesheet" href="css/vendor.css" />
-        <link rel="stylesheet" href="/css/style.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,900;1,900&family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
-          rel="stylesheet" />
 
       </Head>
       <Script src="/js/jquery-1.11.1.min.js" />
@@ -36,30 +34,22 @@ const Header = () => {
                 <ul class="social-links list-unstyled d-flex m-0">
                   <li class="pe-2">
                     <a href="#">
-                      <svg class="facebook" width="20" height="20">
-                        <use href="#facebook"></use>
-                      </svg>
+                      <FaFacebookF />
                     </a>
                   </li>
                   <li class="pe-2">
                     <a href="#">
-                      <svg class="instagram" width="20" height="20">
-                        <use href="#instagram"></use>
-                      </svg>
+                    <FaInstagram />
                     </a>
                   </li>
                   <li class="pe-2">
                     <a href="#">
-                      <svg class="youtube" width="20" height="20">
-                        <use href="#youtube"></use>
-                      </svg>
+                    <FaYoutube />
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <svg class="pinterest" width="20" height="20">
-                        <use href="#pinterest"></use>
-                      </svg>
+                    <FaPinterest />
                     </a>
                   </li>
                 </ul>
@@ -98,7 +88,7 @@ const Header = () => {
             <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar">
               <div class="offcanvas-header px-4 pb-0">
                 <a class="navbar-brand ps-3" href="index.html">
-                  <Image src="/images/main-logo.png" class="logo" alt="logo" width={100} height={100} />
+                  <Image src="/images/main-logo.png" class="logo" alt="logo" layout="responsive" width={10} height={10} />
                 </a>
                 <button type="button" class="btn-close btn-close-black p-5" data-bs-dismiss="offcanvas" aria-label="Close"
                   data-bs-target="#bdNavbar"></button>
@@ -166,23 +156,17 @@ const Header = () => {
               <ul class="d-flex justify-content-end list-unstyled align-item-center m-0">
                 <li class="pe-3">
                   <a href="login" data-bs-toggle="modal" data-bs-target="#modallogin" class="border-0">
-                    <svg class="user" width="24" height="24">
-                      <use xlinkHref="#user"></use>
-                    </svg>
+                  <LuUser2 />
                   </a>
                 </li>
                 <li class="pe-3">
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#modallong" class="border-0">
-                    <svg class="shopping-cart" width="24" height="24">
-                      <use href="#shopping-cart"></use>
-                    </svg>
+                  <a href="" data-bs-toggle="modal" data-bs-target="#modallong" class="border-0">
+                  <IoCartOutline />
                   </a>
                 </li>
                 <li>
                   <a href="#" class="search-item border-0" data-bs-toggle="collapse" data-bs-target="#search-box" aria-label="Toggle navigation">
-                    <svg class="search" width="24" height="24">
-                      <use href="#search"></use>
-                    </svg>
+                  <BsSearch />
                   </a>
                 </li>
               </ul>
