@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Latest() {
     return <div>
         <section id="latest-products" className="product-store py-2 my-2 py-md-5 my-md-5 pt-0">
@@ -13,7 +15,7 @@ export default function Latest() {
                         <div className="col mb-4 mb-3">
                             <div className="product-card position-relative">
                                 <div className="card-img">
-                                    <img src="images/card-item6.jpg" alt="product-item" className="product-image img-fluid" />
+                                    <Image src="/images/card-item6.jpg" alt="product-item" width={100} height={100} className="product-image img-fluid" />
                                     <div className="cart-concern position-absolute d-flex justify-content-center">
                                         <div className="cart-button d-flex gap-2 justify-content-center align-items-center">
                                             <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modallong">
@@ -40,7 +42,7 @@ export default function Latest() {
                         <div className="col mb-4 mb-3">
                             <div className="product-card position-relative">
                                 <div className="card-img">
-                                    <img src="images/card-item7.jpg" alt="product-item" className="product-image img-fluid" />
+                                    <Image src="/images/card-item7.jpg" alt="product-item" width={100} height={100} className="product-image img-fluid" />
                                     <div className="cart-concern position-absolute d-flex justify-content-center">
                                         <div className="cart-button d-flex gap-2 justify-content-center align-items-center">
                                             <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modallong">
@@ -67,7 +69,7 @@ export default function Latest() {
                         <div className="col mb-4 mb-3">
                             <div className="product-card position-relative">
                                 <div className="card-img">
-                                    <img src="images/card-item8.jpg" alt="product-item" className="product-image img-fluid" />
+                                    <Image src="/images/card-item8.jpg" alt="product-item" width={100} height={100} className="product-image img-fluid" />
                                     <div className="cart-concern position-absolute d-flex justify-content-center">
                                         <div className="cart-button d-flex gap-2 justify-content-center align-items-center">
                                             <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modallong">
@@ -94,7 +96,7 @@ export default function Latest() {
                         <div className="col mb-4 mb-3">
                             <div className="product-card position-relative">
                                 <div className="card-img">
-                                    <img src="images/card-item9.jpg" alt="product-item" className="product-image img-fluid" />
+                                    <Image src="/images/card-item9.jpg" alt="product-item" width={100} height={100} className="product-image img-fluid" />
                                     <div className="cart-concern position-absolute d-flex justify-content-center">
                                         <div className="cart-button d-flex gap-2 justify-content-center align-items-center">
                                             <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modallong">
@@ -121,7 +123,7 @@ export default function Latest() {
                         <div className="col mb-4 mb-3">
                             <div className="product-card position-relative">
                                 <div className="card-img">
-                                    <img src="images/card-item10.jpg" alt="product-item" className="product-image img-fluid" />
+                                    <Image src="/images/card-item10.jpg" alt="product-item" width={100} height={100} className="product-image img-fluid" />
                                     <div className="cart-concern position-absolute d-flex justify-content-center">
                                         <div className="cart-button d-flex gap-2 justify-content-center align-items-center">
                                             <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modallong">

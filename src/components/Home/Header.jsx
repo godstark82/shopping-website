@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
-
+import Image from "next/image";
+import Script from "next/script";
 const Header = () => {
   return (
     <>
@@ -22,10 +23,11 @@ const Header = () => {
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,900;1,900&family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
           rel="stylesheet" />
-        <script src="/js/jquery-1.11.1.min.js"></script>
-        <script src="/js/plugin.j"></script>
-        <script src="/js/script.js"></script>
+
       </Head>
+      <Script src="/js/jquery-1.11.1.min.js" />
+      <Script src="/js/plugin.j" />
+      <Script src="/js/script.js" />
       <header id="header" class="site-header text-black">
         <div class="header-top border-bottom py-2">
           <div class="container-lg">
@@ -85,7 +87,7 @@ const Header = () => {
         <nav id="header-nav" class="navbar navbar-expand-lg">
           <div class="container-lg">
             <a class="navbar-brand" href="index.html">
-              <img src="images/main-logo.png" class="logo" alt="logo" />
+              <Image src="/images/main-logo.png" class="logo" alt="logo" width={100} height={100} />
             </a>
             <button class="navbar-toggler d-flex d-lg-none order-3 border-0 p-1 ms-2" type="button" data-bs-toggle="offcanvas"
               data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -96,7 +98,7 @@ const Header = () => {
             <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar">
               <div class="offcanvas-header px-4 pb-0">
                 <a class="navbar-brand ps-3" href="index.html">
-                  <img src="images/main-logo.png" class="logo" alt="logo" />
+                  <Image src="/images/main-logo.png" class="logo" alt="logo" width={100} height={100} />
                 </a>
                 <button type="button" class="btn-close btn-close-black p-5" data-bs-dismiss="offcanvas" aria-label="Close"
                   data-bs-target="#bdNavbar"></button>

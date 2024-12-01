@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Featured() {
     return <div>
 
@@ -14,7 +16,7 @@ export default function Featured() {
                         <div className="col mb-4">
                             <div className="product-card position-relative">
                                 <div className="card-img">
-                                    <img src="images/card-item1.jpg" alt="product-item" className="product-image img-fluid" />
+                                    <Image src="/images/card-item1.jpg" alt="product-item" width={100} height={100} className="product-image img-fluid" />
                                     <div className="cart-concern position-absolute d-flex justify-content-center">
                                         <div className="cart-button d-flex gap-2 justify-content-center align-items-center">
                                             <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modallong">
@@ -41,7 +43,7 @@ export default function Featured() {
                         <div className="col mb-4">
                             <div className="product-card position-relative">
                                 <div className="card-img">
-                                    <img src="images/card-item2.jpg" alt="product-item" className="product-image img-fluid" />
+                                    <Image src="/images/card-item2.jpg" alt="product-item" width={100} height={100} className="product-image img-fluid" />
                                     <div className="cart-concern position-absolute d-flex justify-content-center">
                                         <div className="cart-button d-flex gap-2 justify-content-center align-items-center">
                                             <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modallong">
@@ -68,7 +70,7 @@ export default function Featured() {
                         <div className="col mb-4">
                             <div className="product-card position-relative">
                                 <div className="card-img">
-                                    <img src="images/card-item3.jpg" alt="product-item" className="product-image img-fluid" />
+                                    <Image src="/images/card-item3.jpg" alt="product-item" width={100} height={100} className="product-image img-fluid" />
                                     <div className="cart-concern position-absolute d-flex justify-content-center">
                                         <div className="cart-button d-flex gap-2 justify-content-center align-items-center">
                                             <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modallong">
@@ -95,7 +97,7 @@ export default function Featured() {
                         <div className="col mb-4">
                             <div className="product-card position-relative">
                                 <div className="card-img">
-                                    <img src="images/card-item4.jpg" alt="product-item" className="product-image img-fluid" />
+                                    <Image src="/images/card-item4.jpg" alt="product-item" width={100} height={100} className="product-image img-fluid" />
                                     <div className="cart-concern position-absolute d-flex justify-content-center">
                                         <div className="cart-button d-flex gap-2 justify-content-center align-items-center">
                                             <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modallong">
@@ -122,7 +124,7 @@ export default function Featured() {
                         <div className="col mb-4">
                             <div className="product-card position-relative">
                                 <div className="card-img">
-                                    <img src="images/card-item5.jpg" alt="product-item" className="product-image img-fluid" />
+                                    <Image src="/images/card-item5.jpg" alt="product-item" width={100} height={100} className="product-image img-fluid" />
                                     <div className="cart-concern position-absolute d-flex justify-content-center">
                                         <div className="cart-button d-flex gap-2 justify-content-center align-items-center">
                                             <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modallong">
