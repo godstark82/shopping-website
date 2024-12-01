@@ -148,9 +148,7 @@ const Footer = () => {
         <div class="col-md-6">
           <p>© Copyright Stylish 2023.</p>
         </div>
-        <div class="col-md-6 text-lg-end">
-          <p>Free HTML by <a href="https://templatesjungle.com/" target="_blank">TemplatesJungle</a><br/> Distributed by <a href="https://themewagon.com" target="blank">ThemeWagon</a> </p>
-        </div>
+        
       </div>
     </div>
   </footer>

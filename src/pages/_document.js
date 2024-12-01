@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <link rel="stylesheet" href="/css/style.css" />
+        
       </Head>
       <body className="antialiased">
         <Main />
