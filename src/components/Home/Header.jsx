@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import Image from "next/image";
 import Script from "next/script";
-import { FaFacebookF, FaInstagram, FaYoutube, FaPinterest  } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaYoutube, FaPinterest } from "react-icons/fa";
 import { LuUser2 } from "react-icons/lu";
 import { BsSearch } from "react-icons/bs";
 import { IoCartOutline } from "react-icons/io5";
@@ -21,11 +21,31 @@ const Header = () => {
         <meta name="description" content="Stylish - EyeWear" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
       </Head>
       <Script src="/js/jquery-1.11.1.min.js" />
       <Script src="/js/plugin.j" />
       <Script src="/js/script.js" />
+      {/* SearchBox start */}
+      <div className="search-box bg-dark position-relative">
+        <div className="search-wrap">
+          <div className="close-button">
+            <BsSearch/>
+          </div>
+          <form
+            id="search-form"
+            className="text-lg-center text-md-left pt-3"
+            action="index.html"
+            method="get"
+          >
+            <input type="text" className="search-input" placeholder="Search..." />
+            <svg className="search">
+              <use xlinkHref="#search" />
+            </svg>
+          </form>
+        </div>
+      </div>
+
+      {/* SearchBox end  */}
       <header id="header" class="site-header text-black">
         <div class="header-top border-bottom py-2">
           <div class="container-lg">
@@ -39,17 +59,17 @@ const Header = () => {
                   </li>
                   <li class="pe-2">
                     <a href="#">
-                    <FaInstagram />
+                      <FaInstagram />
                     </a>
                   </li>
                   <li class="pe-2">
                     <a href="#">
-                    <FaYoutube />
+                      <FaYoutube />
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                    <FaPinterest />
+                      <FaPinterest />
                     </a>
                   </li>
                 </ul>
@@ -156,17 +176,17 @@ const Header = () => {
               <ul class="d-flex justify-content-end list-unstyled align-item-center m-0">
                 <li class="pe-3">
                   <a href="login" data-bs-toggle="modal" data-bs-target="#modallogin" class="border-0">
-                  <LuUser2 />
+                    <LuUser2 />
                   </a>
                 </li>
                 <li class="pe-3">
                   <a href="" data-bs-toggle="modal" data-bs-target="#modallong" class="border-0">
-                  <IoCartOutline />
+                    <IoCartOutline />
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="search-item border-0" data-bs-toggle="collapse" data-bs-target="#search-box" aria-label="Toggle navigation">
-                  <BsSearch />
+                  <a href="" class="search-item border-0" data-bs-toggle="collapse" data-bs-target="#search-box" aria-label="Toggle navigation">
+                    <BsSearch />
                   </a>
                 </li>
               </ul>

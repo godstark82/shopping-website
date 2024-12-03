@@ -12,6 +12,7 @@ export default function Login(){
     role="document"
   >
     <div className="modal-content p-4">
+      <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       <div className="modal-header mx-auto border-0">
         <h2 className="modal-title fs-3 fw-normal">Login</h2>
       </div>

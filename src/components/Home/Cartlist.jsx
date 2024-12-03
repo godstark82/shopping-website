@@ -1,3 +1,8 @@
+import Image from "next/image";
+import { LuMinus } from "react-icons/lu";
+import { GoPlus } from "react-icons/go";
+import { AiOutlineClose } from "react-icons/ai";
+
 export default function Cartlist() {
     return <>
     <div className="modal fade" id="modallong" tabindex="-1" aria-modal="true" role="dialog">
@@ -14,7 +19,7 @@ export default function Cartlist() {
                 <div className="mini-cart-item d-flex border-bottom pb-3">
                   <div className="col-lg-2 col-md-3 col-sm-2 me-4">
                     <a href="#" title="product-image">
-                      <img src="images/single-product-thumb1.jpg" className="img-fluid" alt="single-product-item"/>
+                      <Image src="/images/single-product-thumb1.jpg" className="img-fluid" layout="responsive" width={10} height={10} alt="single-product-item"/>
                     </a>
                   </div>
                   <div className="col-lg-9 col-md-8 col-sm-8">
@@ -22,9 +27,7 @@ export default function Cartlist() {
                       <h4 className="product-title fs-6 me-5">Sport Shoes For Men</h4>
                       <a href="" className="remove" aria-label="Remove this item" data-product_id="11913"
                         data-cart_item_key="abc" data-product_sku="">
-                        <svg className="close">
-                          <use href="#close"></use>
-                        </svg>
+                        <AiOutlineClose />
                       </a>
                     </div>
                     <div className="quantity-price d-flex justify-content-between align-items-center">
@@ -32,16 +35,12 @@ export default function Cartlist() {
                         <button type="button"
                           className="quantity-left-minus btn btn-light rounded-0 rounded-start btn-number"
                           data-type="minus">
-                          <svg width="16" height="16">
-                            <use href="#minus"></use>
-                          </svg>
+                          <LuMinus/>
                         </button>
                         <input type="text" name="quantity" className="form-control input-number quantity" value="1"/>
                         <button type="button" className="quantity-right-plus btn btn-light rounded-0 rounded-end btn-number"
                           data-type="plus">
-                          <svg width="16" height="16">
-                            <use href="#plus"></use>
-                          </svg>
+                          <GoPlus/>
                         </button>
                       </div>
                       <div className="price-code">
@@ -56,7 +55,7 @@ export default function Cartlist() {
                 <div className="mini-cart-item d-flex border-bottom pb-3">
                   <div className="col-lg-2 col-md-3 col-sm-2 me-4">
                     <a href="#" title="product-image">
-                      <img src="images/single-product-thumb2.jpg" className="img-fluid" alt="single-product-item"/>
+                      <Image src="/images/single-product-thumb2.jpg" className="img-fluid" layout="responsive" width={10} height={10} alt="single-product-item"/>
                     </a>
                   </div>
                   <div className="col-lg-9 col-md-8 col-sm-8">
@@ -64,9 +63,7 @@ export default function Cartlist() {
                       <h4 className="product-title fs-6 me-5">Brand Shoes For Men</h4>
                       <a href="" className="remove" aria-label="Remove this item" data-product_id="11913"
                         data-cart_item_key="abc" data-product_sku="">
-                        <svg className="close">
-                          <use href="#close"></use>
-                        </svg>
+                        <AiOutlineClose/>
                       </a>
                     </div>
                     <div className="quantity-price d-flex justify-content-between align-items-center">
@@ -74,16 +71,12 @@ export default function Cartlist() {
                         <button type="button"
                           className="quantity-left-minus btn btn-light rounded-0 rounded-start btn-number"
                           data-type="minus">
-                          <svg width="16" height="16">
-                            <use href="#minus"></use>
-                          </svg>
+                          <LuMinus/>
                         </button>
                         <input type="text" name="quantity" className="form-control input-number quantity" value="1"/>
                         <button type="button" className="quantity-right-plus btn btn-light rounded-0 rounded-end btn-number"
                           data-type="plus">
-                          <svg width="16" height="16">
-                            <use href="#plus"></use>
-                          </svg>
+                          <GoPlus/>
                         </button>
                       </div>
                       <div className="price-code">

@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import "./vendor.css";
 /*--------------------------------------------------------------
 /** 1. VARIABLES
@@ -1564,7 +1568,6 @@ a.text-hover:focus:after {
   transition: transform 0.9s var(--easing);
 }
 
-.swiper-slide-active .txt-fx.slide-up .letter,
 .aos-animate .txt-fx.slide-up .letter {
   transform: translate3d(0, 0, 0);
 }
@@ -1576,7 +1579,6 @@ a.text-hover:focus:after {
   transition: transform 0.9s var(--easing);
 }
 
-.swiper-slide-active .txt-fx.domino .letter,
 .aos-animate .txt-fx.domino .letter {
   transform: rotateY(0);
 }
@@ -1588,7 +1590,6 @@ a.text-hover:focus:after {
   transition: transform 0.9s var(--easing);
 }
 
-.swiper-slide-active .txt-fx.zoom .letter,
 .aos-animate .txt-fx.zoom .letter {
   transform: scale(1);
 }

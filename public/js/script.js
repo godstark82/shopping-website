@@ -11,6 +11,7 @@
     });
   }
 
+
   // input spinner
   var initProductQty = function(){
 
