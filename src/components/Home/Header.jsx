@@ -87,7 +87,7 @@ const Header = () => {
                     <a href="#">Cart</a>
                   </li>
                   <li>
-                    <a href="#">Login</a>
+                    <a href="/screens/auth/login">Login</a>
                   </li>
                 </ul>
               </div>
