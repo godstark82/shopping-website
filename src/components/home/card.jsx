@@ -1,17 +1,17 @@
-export default function Card() {
+export default function Card({ product }) {
     return <>
         <div className="border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow border rounded-lg w-full max-w-sm">
             <a href="#">
                 <img
                     className="p-8 rounded-t-lg"
-                    src="https://flowbite.com/docs/images/products/apple-watch.png"
+                    src={product.image}
                     alt="product image"
                 />
             </a>
             <div className="px-5 pb-5">
                 <a href="#">
                     <h5 className="font-semibold text-gray-900 text-xl dark:text-white tracking-tight">
-                        Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
+                        {product.name}
                     </h5>
                 </a>
                 <div className="flex items-center mt-2.5 mb-5">
@@ -63,12 +63,12 @@ export default function Card() {
                         </svg>
                     </div>
                     <span className="bg-blue-100 dark:bg-blue-200 px-2.5 py-0.5 rounded font-semibold text-blue-800 text-xs dark:text-blue-800 ms-3">
-                        5.0
+                        {product.rating}
                     </span>
                 </div>
                 <div className="flex justify-between items-center">
                     <span className="font-bold text-3xl text-gray-900 dark:text-white">
-                        $599
+                        ${product.price}
                     </span>
                     <a
                         href="#"
