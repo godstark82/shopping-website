@@ -1,30 +1,19 @@
+import * as React from "react"
+import Image from "next/image"
 import {
-  CarouselItem,
   Carousel,
   CarouselContent,
-  type CarouselApi
-} from '@/components/ui/carousel'
-import React from 'react'
-import Image from 'next/image'
-import { a } from 'framer-motion/client'
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import Autoplay from "embla-carousel-autoplay"
 
-export function HomeCarousel () {
-  const [api, setApi] = React.useState<CarouselApi>()
-  const [current, setCurrent] = React.useState(0)
-  const [count, setCount] = React.useState(0)
 
-  React.useEffect(() => {
-    if (!api) {
-      return
-    }
-
-    setCount(api.scrollSnapList().length)
-    setCurrent(api.selectedScrollSnap() + 1)
-
-    api.on('select', () => {
-      setCurrent(api.selectedScrollSnap() + 1)
-    })
-  }, [api])
+export function HomeCarousel() {
+  const plugin = React.useRef(
+    Autoplay({ delay: 2000 })
+  )
 
   const arr = [
     '/images/carousel/image1.jpg',
@@ -33,13 +22,16 @@ export function HomeCarousel () {
   ]
 
   return (
-    <Carousel setApi={setApi}>
+    <Carousel
+      plugins={[plugin.current]}
+      className="w-full max-w-xs mx-auto"
+    >
       <CarouselContent>
-        {arr.map((item, index) => (
+        {arr.map((image, index) => (
           <CarouselItem key={index}>
             <div className='relative w-full h-[50vh]'>
               <Image
-                src={item}
+                src={image}
                 fill
                 alt='profile'
                 className='object-cover'
@@ -49,6 +41,9 @@ export function HomeCarousel () {
           </CarouselItem>
         ))}
       </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
     </Carousel>
   )
 }
+
