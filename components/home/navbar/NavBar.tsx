@@ -7,7 +7,9 @@ import { CartButton } from './CartButton'
 import { AccountButton } from './NavAccountButton'
 import { CategoryModel } from '@/lib/models/category-model'
 import { NavItem } from './NavItem'
-    
+import Image from 'next/image'
+import Link from 'next/link'
+
 export default function Navbar() {
     const [categories, setCategories] = useState<CategoryModel[]>([])
     useEffect(() => {
@@ -36,18 +38,22 @@ export default function Navbar() {
                 <div className='flex justify-between items-center'>
                     <div className='flex items-center space-x-8'>
                         <div className='shrink-0'>
-                            <a href='/' title='' className=''>
-                                <img
+                            <Link href='/' title='' className=''>
+                                <Image
                                     className='block dark:hidden w-auto h-8'
                                     src='https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full.svg'
                                     alt=''
+                                    width={100}
+                                    height={100}
                                 />
-                                <img
+                                <Image
                                     className='dark:block hidden w-auto h-8'
                                     src='https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full-dark.svg'
                                     alt=''
+                                    width={100}
+                                    height={100}
                                 />
-                            </a>
+                            </Link>
                         </div>
                         <ul className='lg:flex justify-start sm:justify-center items-center gap-6 md:gap-8 hidden py-3'>
                             {categories.map((category) => (

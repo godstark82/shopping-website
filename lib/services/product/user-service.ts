@@ -15,9 +15,9 @@ const db = getFirestore(app)
 export const addUser = async (user: UserModel) => {
   try {
     const userRef = collection(db, 'users')
-    const docRef = await addDoc(userRef, UserModel.toJson(user))
+    const docRef = await addDoc(userRef, { ...UserModel.toMap(user) })
     user.id = docRef.id
-    await updateDoc(docRef, UserModel.toJson(user))
+    await updateDoc(docRef, { ...UserModel.toMap(user) })
   } catch (error) {
     console.error('Error adding user:', error)
     throw error
@@ -50,7 +50,7 @@ export const deleteUser = async (userId: string) => {
 export const updateUser = async (user: UserModel) => {
   try {
     const userRef = doc(db, 'users', user.id)
-    await updateDoc(userRef, UserModel.toJson(user))
+    await updateDoc(userRef, UserModel.toMap(user))
   } catch (error) {
     console.error('Error updating user:', error)
     throw error
