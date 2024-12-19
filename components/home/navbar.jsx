@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { getCategories } from '@/lib/services/product/category-service'
-import { CategoryModel } from '@/lib/models/category-model'
 import { logout } from '@/lib/services/login/login-service'
 
 export function NavItem({ title, href }) {
