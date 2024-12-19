@@ -29,20 +29,11 @@ export const register = async (userModel: UserModel) => {
 
     const docRef = doc(collection(db, 'users'), userId)
 
-    await setDoc(docRef, {
-      id: userId,
-      email: userModel.email,
-      password: userModel.password, 
-      name: userModel.name
-    })
+    await setDoc(docRef, UserModel.toMap(userModel))
 
     // Navigate to home page after successful signup
-    document.hasStorageAccess().then(access => {
-      if (access) {
-        localStorage.setItem('userId', userId)
-        console.log('User saved to localStorage')
-      }
-    })
+    localStorage.setItem('userId', userId)
+    console.log('User saved to localStorage')
     window.location.href = '/'
   } catch (error) {
     console.error('Error signing up with email and password:', error)

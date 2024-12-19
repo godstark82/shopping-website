@@ -1,6 +1,6 @@
 'use client'
 
-import Navbar from '@/components/home/navbar'
+import Navbar from '@/components/home/navbar/NavBar'
 import CardList from '@/components/home/card-list'
 import { useEffect, useState } from 'react'
 import { SubCategoryModel } from '@/lib/models/subcategory-model'

@@ -3,6 +3,8 @@ export class UserModel {
   name: string
   email: string
   password: string
+  profilePicture: string
+  gender: string
   role: string
   address: string[] // addresses
   phone: string[] // phone number
@@ -16,6 +18,8 @@ export class UserModel {
     name: string,
     email: string,
     password: string,
+    profilePicture: string,
+    gender: string,
     role: string,
     address: string[],
     phone: string[],
@@ -28,6 +32,8 @@ export class UserModel {
     this.name = name
     this.email = email
     this.password = password
+    this.profilePicture = profilePicture
+    this.gender = gender
     this.role = role
     this.address = address
     this.phone = phone
@@ -43,6 +49,8 @@ export class UserModel {
       '',
       email,
       password,
+      '',
+      '',
       '',
       [],
       [],
@@ -60,6 +68,8 @@ export class UserModel {
       model.name,
       model.email,
       model.password,
+      model.profilePicture,
+      model.gender,
       model.role,
       model.address,
       model.phone,
@@ -70,12 +80,14 @@ export class UserModel {
     )
   }
 
-  static toJson (user: UserModel) {
+  static toMap (user: UserModel) {
     return {
       id: user.id,
       name: user.name,
       email: user.email,
       password: user.password,
+      profilePicture: user.profilePicture,
+      gender: user.gender,
       role: user.role,
       address: user.address,
       phone: user.phone,
@@ -83,6 +95,11 @@ export class UserModel {
       orders: user.orders,
       createdAt: user.createdAt,
       updatedAt: user.updatedAt
+
     }
+  }
+
+  static toJson (user: UserModel) {
+    return JSON.stringify(UserModel.toMap(user))
   }
 }
