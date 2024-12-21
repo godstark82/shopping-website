@@ -7,7 +7,8 @@ import {
   doc,
   getDocs,
   deleteDoc,
-  updateDoc
+  updateDoc,
+  getDoc
 } from 'firebase/firestore'
 
 const db = getFirestore(app)
@@ -33,6 +34,17 @@ export const getProducts = async () => {
     )
   } catch (error) {
     console.error('Error getting products:', error)
+    throw error
+  }
+}
+
+export const getProductById = async (productId: string) => {
+  try {
+    const productRef = doc(db, 'products', productId)
+    const snapshot = await getDoc(productRef)
+    return ProductModel.fromJson(JSON.stringify(snapshot.data()))
+  } catch (error) {
+    console.error('Error getting product:', error)
     throw error
   }
 }

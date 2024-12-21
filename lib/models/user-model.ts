@@ -61,6 +61,24 @@ export class UserModel {
     )
   }
 
+  copyWith (user: UserModel) {
+    return new UserModel(
+      user.id ?? this.id,
+      user.name ?? this.name,
+      user.email ?? this.email,
+      user.password ?? this.password,
+      user.profilePicture ?? this.profilePicture,
+      user.gender ?? this.gender,
+      user.role ?? this.role,
+      user.address ?? this.address,
+      user.phone ?? this.phone,
+      user.cart ?? this.cart,
+      user.orders ?? this.orders,
+      user.createdAt ?? this.createdAt,
+      user.updatedAt ?? this.updatedAt
+    )
+  }
+
   static fromJson (json: string): UserModel {
     const model = JSON.parse(json) as UserModel
     return new UserModel(
@@ -95,7 +113,6 @@ export class UserModel {
       orders: user.orders,
       createdAt: user.createdAt,
       updatedAt: user.updatedAt
-
     }
   }
 

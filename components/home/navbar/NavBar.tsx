@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { getCategories } from '@/lib/services/product/category-service'
 import { NavbarSearch } from './NavSearch'
 import { CartButton } from './CartButton'
@@ -12,6 +12,8 @@ import Link from 'next/link'
 
 export default function Navbar() {
     const [categories, setCategories] = useState<CategoryModel[]>([])
+    const categoriesFetched = useRef(false)
+
     useEffect(() => {
         // Import Flowbite's dropdown functionality
         const initFlowbite = async () => {
@@ -25,8 +27,15 @@ export default function Navbar() {
 
     useEffect(() => {
         const fetchCategories = async () => {
-            const fetchedCategories = await getCategories()
-            setCategories(fetchedCategories)
+            if (!categoriesFetched.current) {
+                try {
+                    const fetchedCategories = await getCategories()
+                    setCategories(fetchedCategories)
+                    categoriesFetched.current = true
+                } catch (error) {
+                    console.error('Error fetching categories:', error)
+                }
+            }
         }
         fetchCategories()
     }, [])
@@ -57,12 +66,8 @@ export default function Navbar() {
                         </div>
                         <ul className='lg:flex justify-start sm:justify-center items-center gap-6 md:gap-8 hidden py-3'>
                             {categories.map((category) => (
-                                <NavItem key={category.id} title={category.name} href={`/screens/category/${category.id}`} />
+                                <NavItem key={category.id} title={category.name} href={`/category?id=${category.id}`} />
                             ))}
-                            {/* <NavItem title='Best Sellers' href='/' />
-                            <NavItem title='Gift Ideas' href='/' />
-                            <NavItem title="Today's Deals" href='/' />
-                            <NavItem title='Sell' href='/' /> */}
                             <NavbarSearch />
                         </ul>
                     </div>

@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { UserModel } from '@/lib/models/user-model'
-import { getUser } from '@/lib/services/user/user-services'
-import Navbar from '@/components/home/navbar/NavBar'
+import { getUser, updateUser } from '@/lib/services/user/user-services'
 
 export default function AccountPage () {
   const [user, setUser] = useState<UserModel | null>(null)
@@ -26,9 +25,50 @@ export default function AccountPage () {
     fetchUserData()
   }, [])
 
+  const handleUpdateName = async () => {
+    if (!user) return
+    user.name = name
+    await updateUser(user)
+    setUser(user)
+    setEditingField(null)
+  }
+
+  const handleUpdateGender = async () => {
+    if (!user) return
+    user.gender = gender
+    await updateUser(user)
+    setUser(user)
+    setEditingField(null)
+  }
+
+  const handleUpdateAddress = async () => {
+    if (!user) return
+    user.address = addresses
+    await updateUser(user)
+    setUser(user)
+    setEditingField(null)
+  }
+
+  const handleFieldEdit = (field: string) => {
+    if (editingField === field) {
+      switch (field) {
+        case 'name':
+          handleUpdateName()
+          break
+        case 'gender':
+          handleUpdateGender()
+          break
+        case 'addresses':
+          handleUpdateAddress()
+          break
+      }
+    } else {
+      setEditingField(field)
+    }
+  }
+
   return (
     <>
-      <Navbar />
       <div className='mx-auto p-4 max-w-4xl'>
         <h1 className='mb-8 font-bold text-2xl text-gray-900 dark:text-white'>
           Account Details
@@ -46,7 +86,7 @@ export default function AccountPage () {
                     Name
                   </label>
                   <button
-                    onClick={() => setEditingField(editingField === 'name' ? null : 'name')}
+                    onClick={() => handleFieldEdit('name')}
                     className='font-medium text-blue-600 text-sm hover:text-blue-700'
                   >
                     {editingField === 'name' ? 'Save' : 'Edit'}
@@ -70,7 +110,7 @@ export default function AccountPage () {
                     Gender
                   </label>
                   <button
-                    onClick={() => setEditingField(editingField === 'gender' ? null : 'gender')}
+                    onClick={() => handleFieldEdit('gender')}
                     className='font-medium text-blue-600 text-sm hover:text-blue-700'
                   >
                     {editingField === 'gender' ? 'Save' : 'Edit'}
@@ -82,13 +122,15 @@ export default function AccountPage () {
                     onChange={e => setGender(e.target.value)}
                     className='dark:border-gray-600 dark:bg-gray-700 p-2 border rounded-lg w-full'
                   >
-                    <option value="">Select Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
+                    <option value=''>Select Gender</option>
+                    <option value='male'>Male</option>
+                    <option value='female'>Female</option>
+                    <option value='other'>Other</option>
                   </select>
                 ) : (
-                  <p className='text-gray-900 dark:text-white'>{user?.gender || 'Not specified'}</p>
+                  <p className='text-gray-900 dark:text-white'>
+                    {user?.gender || 'Not specified'}
+                  </p>
                 )}
               </div>
 
@@ -112,7 +154,7 @@ export default function AccountPage () {
                     Addresses
                   </label>
                   <button
-                    onClick={() => setEditingField(editingField === 'addresses' ? null : 'addresses')}
+                    onClick={() => handleFieldEdit('addresses')}
                     className='font-medium text-blue-600 text-sm hover:text-blue-700'
                   >
                     {editingField === 'addresses' ? 'Save' : 'Edit'}
@@ -134,7 +176,9 @@ export default function AccountPage () {
                         />
                         <button
                           onClick={() => {
-                            const newAddresses = addresses.filter((_, i) => i !== index)
+                            const newAddresses = addresses.filter(
+                              (_, i) => i !== index
+                            )
                             setAddresses(newAddresses)
                           }}
                           className='text-red-600 hover:text-red-700'
@@ -154,12 +198,17 @@ export default function AccountPage () {
                   <div className='space-y-2'>
                     {user?.address && user.address.length > 0 ? (
                       user.address.map((address, index) => (
-                        <p key={index} className='text-gray-900 dark:text-white'>
+                        <p
+                          key={index}
+                          className='text-gray-900 dark:text-white'
+                        >
                           {address}
                         </p>
                       ))
                     ) : (
-                      <p className='text-gray-500 dark:text-gray-400'>No addresses added</p>
+                      <p className='text-gray-500 dark:text-gray-400'>
+                        No addresses added
+                      </p>
                     )}
                   </div>
                 )}
@@ -184,11 +233,11 @@ export default function AccountPage () {
                   Member Since
                 </label>
                 <p className='text-gray-900 dark:text-white'>
-                  {new Date().toLocaleDateString('en-GB', {
+                  {user?.createdAt ? new Date(user.createdAt).toLocaleDateString('en-GB', {
                     day: '2-digit',
                     month: '2-digit',
                     year: '2-digit'
-                  })}
+                  }) : '-'}
                 </p>
               </div>
 
@@ -197,7 +246,7 @@ export default function AccountPage () {
                   Last Login
                 </label>
                 <p className='text-gray-900 dark:text-white'>
-                  {new Date().toLocaleString()}
+                  {user?.updatedAt ? new Date(user.updatedAt).toLocaleString() : '-'}
                 </p>
               </div>
             </div>
@@ -211,7 +260,6 @@ export default function AccountPage () {
               <button className='font-medium text-blue-600 text-sm hover:text-blue-700 dark:hover:text-blue-300 dark:text-blue-400'>
                 Change Password
               </button>
-              
             </div>
           </div>
 

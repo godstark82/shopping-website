@@ -1,6 +1,5 @@
 'use client'
 
-import Navbar from '@/components/home/navbar/NavBar'
 import CardList from '@/components/home/card-list'
 import { useEffect, useState } from 'react'
 import { SubCategoryModel } from '@/lib/models/subcategory-model'
@@ -36,7 +35,6 @@ export default function Home () {
   if (isLoading) {
     return (
       <>
-        <Navbar />
         <div className='flex justify-center items-center min-h-screen'>
           <div className='border-gray-900 dark:border-white border-t-2 border-b-2 rounded-full w-16 h-16 animate-spin'></div>
         </div>
@@ -46,7 +44,6 @@ export default function Home () {
 
   return (
     <>
-      <Navbar />
       {/* <HomeCarousel /> */}
       {subCategories.map(subCategory => (
         <CardList

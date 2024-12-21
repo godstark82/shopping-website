@@ -1,4 +1,5 @@
 import { logout } from '@/lib/services/login/login-service'
+import Link from 'next/link';
 import { FaUser } from "react-icons/fa";
 import { RiArrowDropDownLine } from "react-icons/ri";
 
@@ -21,10 +22,10 @@ export function AccountButton () {
       >
         <ul className='p-2 font-medium text-gray-900 text-sm text-start dark:text-white'>
           <AccountButtonItem title='My Account' href='/user/account' />
-          <AccountButtonItem title='My Orders' href='#' />
-          <AccountButtonItem title='Settings' href='#' />
-          <AccountButtonItem title='Favourites' href='#' />
-          <AccountButtonItem title='Billing Data' href='#' />
+          <AccountButtonItem title='My Orders' href='/user/orders' />
+          <AccountButtonItem title='Settings' href='/user/settings' />
+          <AccountButtonItem title='Favourites' href='/user/favorite' />
+          <AccountButtonItem title='Billing Data' href='/user/address' />
         </ul>
         <div className='p-2 font-medium text-gray-900 text-sm dark:text-white'>
           <button
@@ -45,14 +46,14 @@ function AccountButtonItem ({ title, href }: { title: string; href: string }) {
   return (
     <>
       <li>
-        <a
+        <Link
           href={href}
           title=''
           className='inline-flex items-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-600 px-3 py-2 rounded-md w-full text-sm'
         >
           {' '}
           {title}
-        </a>
+        </Link>
       </li>
     </>
   )
