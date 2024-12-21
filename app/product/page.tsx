@@ -7,7 +7,7 @@ import { useEffect, useState, Suspense } from 'react'
 import { use } from 'react'
 
 interface ProductPageProps {
-  searchParams: { id: string }
+  searchParams: Promise<{ id: string }>
 }
 
 const LoadingSpinner = () => (
@@ -68,7 +68,8 @@ const ProductDetails = ({ product }: { product: ProductModel }) => (
   </div>
 )
 
-export default function ProductPage ({ searchParams }: ProductPageProps) {
+export default function ProductPage(props: ProductPageProps) {
+  const searchParams = use(props.searchParams);
   const { id } = searchParams
   const [product, setProduct] = useState<ProductModel | null>(null)
   const [isLoading, setIsLoading] = useState(true)

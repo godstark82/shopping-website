@@ -7,14 +7,15 @@ import { ProductModel } from '@/lib/models/product-model'
 import { SubCategoryModel } from '@/lib/models/subcategory-model'
 import { CategoryModel } from '@/lib/models/category-model'
 import Link from 'next/link'
-import { useEffect, useState, Suspense } from 'react'
+import { useEffect, useState, Suspense, use } from 'react';
 import { ProductCard } from '@/components/home/product/ProductCard'
 
 interface CategoryPageProps {
-  searchParams: { id: string }
+  searchParams: Promise<{ id: string }>
 }
 
-export default function CategoryPage ({searchParams}: CategoryPageProps) {
+export default function CategoryPage(props: CategoryPageProps) {
+  const searchParams = use(props.searchParams);
   const { id } = searchParams;
   const [categories, setCategories] = useState<CategoryModel[]>([])
   const [subcategories, setSubcategories] = useState<SubCategoryModel[]>([])

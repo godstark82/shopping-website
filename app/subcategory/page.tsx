@@ -4,11 +4,11 @@ import { ProductModel } from '@/lib/models/product-model'
 import { SubCategoryModel } from '@/lib/models/subcategory-model'
 import { getSubCategories } from '@/lib/services/product/subcategory-service'
 import { getProducts } from '@/lib/services/product/product-service'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, use } from 'react';
 import { ProductCard } from '@/components/home/product/ProductCard'
 
 interface SubcategoryPageProps {
-  searchParams: { id: string }
+  searchParams: Promise<{ id: string }>
 }
 
 const LoadingSpinner = () => (
@@ -17,9 +17,8 @@ const LoadingSpinner = () => (
   </div>
 )
 
-export default function SubcategoryPage ({
-  searchParams
-}: SubcategoryPageProps) {
+export default function SubcategoryPage(props: SubcategoryPageProps) {
+  const searchParams = use(props.searchParams);
   const { id } = searchParams
   const [subcategories, setSubcategories] = useState<SubCategoryModel[]>([])
   const [products, setProducts] = useState<ProductModel[]>([])
